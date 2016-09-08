@@ -1,67 +1,77 @@
-//global variables
-$('.resume').click(function(event) {
-  if ($('.resume').hasClass('on-desk')) {
-    if ($(event.target).hasClass('item-one')) {
-      $('.image, .description').removeClass('selected')
-      $('.item-one').addClass('selected').addClass('shown')
-      $('.description').removeClass('shown')
-      setTimeout(function () {
-        $('.image').removeClass('shown')
-        $('.item-one').addClass('shown')
-      }, 550);
-    } else if ($(event.target).hasClass('item-two')) {
-      $('.image, .description').removeClass('selected')
-      $('.item-two').addClass('selected').addClass('shown')
-      $('.description').removeClass('shown')
-      setTimeout(function () {
-        $('.image').removeClass('shown')
-        $('.item-two').addClass('shown')
-      }, 550);
-    } else if ($(event.target).hasClass('item-three')) {
-      $('.image, .description').removeClass('selected')
-      $('.item-three').addClass('selected').addClass('shown')
-      $('.description').removeClass('shown')
-      setTimeout(function () {
-        $('.image').removeClass('shown')
-        $('.item-three').addClass('shown')
-      }, 550);
-    } else if ($(event.target).hasClass('item-four')) {
-      $('.image, .description').removeClass('selected')
-      $('.item-four').addClass('selected').addClass('shown')
-      $('.description').removeClass('shown')
-      setTimeout(function () {
-        $('.image').removeClass('shown')
-        $('.item-four').addClass('shown')
-      }, 550);
-    } else {
-      $('.resume').removeClass('on-desk')
-      $('.image, .description').removeClass('selected').removeClass('shown')
-    }
+var heroImage = document.getElementById('hero-image')
+var heroHeader = document.getElementById('hero-header')
+
+// function mouse_position()
+// {
+//     var e = window.event;
+//
+//     var posX = e.clientX;
+//     var posY = e.clientY;
+//
+// 		var height = window.innerHeight
+// 		var width = window.innerWidth
+//
+// 		yP = posY / height;
+// 		xP = posX / width;
+//
+// 		var containerPositionX = (xP * 50 - 25) * -1
+// 		var containerPositionY = (yP * 50 - 25) * -1
+//
+// 		heroImage.style.transform = 'translate3d('+containerPositionX+'px,'+containerPositionY+'px,0)'
+// 		// heroHeader.style.transform = 'translate3d('+containerPositionX/2+'px,'+containerPositionY/2+'px,0)'
+//
+// }
+// document.onmousemove = mouse_position
+
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+function checkScrollDirection(e) {
+  var doc = document.documentElement
+  var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
+  if (scrollTop > 200) {
+    $('.fixed-header .hero-header').addClass('active')
+    $('.home-hero .hero-header').removeClass('active')
   } else {
-    $('.resume').addClass('on-desk')
-    var target = $(event.target)
-    setTimeout(function () {
-      if (target.hasClass('item-one')) {
-        $('.item-one').addClass('selected').addClass('shown')
-      } else if (target.hasClass('item-two')) {
-        $('.item-two').addClass('selected').addClass('shown')
-      } else if (target.hasClass('item-three')) {
-        $('.item-three').addClass('selected').addClass('shown')
-      } else if (target.hasClass('item-four')) {
-        $('.item-four').addClass('selected').addClass('shown')
-      }
-    }, 400);
-
+    $('.fixed-header .hero-header').removeClass('active')
+    $('.home-hero .hero-header').addClass('active')
   }
-})
+  if (scrollTop > 800) {
+    heroImage.style.display = 'none';
+  } else {
+    heroImage.style.display = 'block';
+  }
+  // if (e.originalEvent.deltaX > 1) {
+  //   moveRight()
+  // } else if (e.originalEvent.deltaX < -1) {
+  //   moveLeft()
+  // } else if (e.originalEvent.deltaY > 1) {
+  //   moveDown()
+  // } else if (e.originalEvent.deltaY < -1) {
+  //   moveUp()
+  // }
+}
 
-// $('.item-one').click(function(event) {
-//   if ($('.item-one').hasClass('selected')) {
-//     $('.item-one').removeClass('selected')
-//     $('.resume').removeClass('on-desk')
-//   } else {
-//     console.log($('.resume'));
-//     $('.resume').addClass('on-desk')
-//     // $('.item-one').addClass('selected')
-//   }
-// })
+var debounceScroll = debounce(checkScrollDirection, 10)
+
+// window.addEventListener('scroll', function(){ console.log('whats '); }, true)
+
+$('body').bind('mousewheel', function(e){
+  debounceScroll(e)
+});
+
+addEventListener($('body'), "mousewheel", function(e) {
+  debounceScroll(e)
+});

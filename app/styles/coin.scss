@@ -1,0 +1,66 @@
+.coin {
+    background-size: 100% 100%;
+    border-radius: 100%;
+    height: 100px;
+    position: relative;
+    width: 100px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0,0,0,.4);
+}
+.coin:after {
+    background-color: #777;
+    background-image: -webkit-linear-gradient(hsla(0,0%,100%,.25), hsla(0,0%,0%,.25));
+    background-image: linear-gradient(hsla(0,0%,100%,.25), hsla(0,0%,0%,.25));
+    bottom: 0;
+    content: '';
+    left: 45px;
+    position: absolute;
+    top: 0;
+    width: 5px;
+    z-index: -10;
+    -webkit-transform: rotateY(-90deg);
+    -webkit-transform-origin: 100% 50%;
+    transform: rotateY(-90deg);
+    transform-origin: 100% 50%;
+}
+.coin:before {
+    background-color: #777;
+    background-image: -webkit-linear-gradient(hsla(0,0%,100%,.25), hsla(0,0%,0%,.25));
+    background-image: linear-gradient(hsla(0,0%,100%,.25), hsla(0,0%,0%,.25));
+    border-radius: 100%;
+    content: '';
+    height: 100px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100px;
+    -webkit-transform: translateZ(-5px);
+    transform: translateZ(-5px);
+}
+
+.coin {
+	@include xb(animation, slow_rotating_coin 10s infinite linear);
+}
+.coin.active {
+	@include xb(animation, fast_rotating_coin 4s cubic-bezier(.4,.82,.4,1));
+}
+
+@include keyframes(slow_rotating_coin) {
+  25% {
+    	@include xb(transform, rotateY(-50deg));
+  }
+  75% {
+    	@include xb(transform, rotateY(50deg));
+  }
+}
+
+@include keyframes(fast_rotating_coin) {
+  0% {
+    	@include xb(transform, rotateY(0deg));
+  }
+  100% {
+      @include xb(transform, rotateY(-2880deg));
+  }
+}

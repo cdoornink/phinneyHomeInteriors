@@ -6,20 +6,15 @@ module.exports = function(grunt) {
       dist: ['dist']
     },
     concat: {
-      options: {
-        separator: ';',
-      },
       js: {
+        separator: ';',
         src: ['app/scripts/*', 'app/start.js'],
-        dest: 'dist/app/cd.js',
+        dest: 'dist/app/phi.js',
       },
       libs: {
+        separator: ';',
         src: ['libs/*'],
         dest: 'dist/app/vendor.js',
-      },
-      styles: {
-        src: ['app/styles/*'],
-        dest: 'dist/app/cd.css',
       }
     },
     copy: {
@@ -28,6 +23,13 @@ module.exports = function(grunt) {
           {src: 'app/index.html', dest: 'dist/'},
           {src: 'assets/**', dest: 'dist/app/'},
         ]
+      }
+    },
+    sass: {
+      dist: {
+        files: {
+          'dist/app/phi.css': 'app/styles/app.scss'
+        }
       }
     },
     'http-server': {
@@ -63,8 +65,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Default task(s).
   grunt.registerTask('default', ['build', 'http-server', 'watch']);
-  grunt.registerTask('build', ['clean', 'concat', 'copy']);
+  grunt.registerTask('build', ['clean', 'concat', 'copy', 'sass']);
 };

@@ -1,0 +1,170 @@
+.home-hero {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+.fixed-bg-image {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+}
+.hero-image {
+  height: 120%;
+  width: 120%;
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  background: url(../assets/temp_images/kitchen.jpg);
+  background-size: cover;
+  background-position: center;
+  // @include xb(transform, translate3d(0,0,0));
+  // @include xb(animation, slowMove 50s linear infinite);
+  // transition: transform .1s cubic-bezier(1,1,1,1.1);
+}
+.hero-header {
+  // display: none;
+  width: 100%;
+  position: absolute;
+  top: 200px;
+  text-align: center;
+  color: black;
+  height: 100px;
+  padding-top: 5px;
+  // transition: transform .4s cubic-bezier(1,1,1,1.1);
+  .titlefont {
+    color: $green;
+  }
+}
+
+.hero-header.active {
+  display: block;
+}
+.hero-header.active {
+  display: block;
+}
+
+.fixed-header .hero-header {
+  position: fixed;
+  transform: translate3d(0,-70px,0);
+  transition: transform .5s;
+  top: 0;
+  z-index: 10;
+  font-size: 26px;
+  font-weight: 300;
+  background: white;
+  height: 60px;
+  padding: 10px 20px;
+  text-align: left;
+  .titlefont {
+    font-size: 23px;
+    top: -5px;
+  }
+  &.active {
+    transform: translate3d(0,0,0);
+  }
+}
+
+.columned-boxes {
+  width: 100%;
+  padding: 40px;
+  overflow: hidden;
+  position: relative;
+  > div {
+    background: white;
+    padding: 10px 30px;
+    text-align: left;
+    width: calc(33.333% - 10px);
+    float: left;
+    margin: 0 5px;
+    height: 460px;
+  }
+  .image {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+}
+
+.floating-text-container {
+  padding: 5% 20%;
+  position: relative;
+}
+
+.content-space {
+  width: 100%;
+  padding: 0px 40px;
+  text-align: center;
+  position: relative;
+  background: $main_bg;
+}
+
+.instagram-container {
+  margin: 50px -40px 0;
+  background: white;
+  padding: 50px 0 100px;
+}
+
+.about-container {
+  padding: 100px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: $main_bg;
+  .background-image {
+    height: 120%;
+    width: 120%;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    background: url(../assets/temp_images/stools_blurred.png);
+    background-size: cover;
+    background-position: center;
+  }
+  .about-image {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 60px;
+    left: 120px;
+    background: url(../assets/temp_images/temp_annie.png);
+    background-size: cover;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .about-description {
+    position: relative;
+    background: white;
+    padding: 40px 40px 40px 150px;
+    margin-left: 100px;
+    width: calc(100% - 200px);
+  }
+}
+
+.about-container2 {
+  // width: calc(100% + 80px);
+  // margin: 0 -40px;
+  width: 100%;
+  height: 550px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 100px;
+  .about-image {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    float: left;
+    background: url(../assets/temp_images/temp_annie2.png);
+    background-size: cover;
+    background-position: center center;
+  }
+  .about-description {
+    position: relative;
+    background: white;
+    width: 60%;
+    height: 100%;
+    float: left;
+    padding: 40px 7%;
+  }
+}

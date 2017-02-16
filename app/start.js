@@ -41,18 +41,21 @@ function debounce(func, wait, immediate) {
 function checkScrollDirection(e) {
   var doc = document.documentElement
   var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
-  if (scrollTop > 200) {
+  if (scrollTop > 1) {
     $('.fixed-header .hero-header').addClass('active')
-    $('.home-hero .hero-header').removeClass('active')
+    // $('.home-hero .hero-header').removeClass('active')
   } else {
     $('.fixed-header .hero-header').removeClass('active')
-    $('.home-hero .hero-header').addClass('active')
+    // $('.home-hero .hero-header').addClass('active')
   }
-  if (scrollTop > 800) {
-    heroImage.style.display = 'none';
-  } else {
-    heroImage.style.display = 'block';
-  }
+
+  //was for the fixed image in the hero, not fixed anymore
+  // if (scrollTop > 800) {
+  //   heroImage.style.display = 'none';
+  // } else {
+  //   heroImage.style.display = 'block';
+  // }
+
   // if (e.originalEvent.deltaX > 1) {
   //   moveRight()
   // } else if (e.originalEvent.deltaX < -1) {
@@ -66,12 +69,7 @@ function checkScrollDirection(e) {
 
 var debounceScroll = debounce(checkScrollDirection, 10)
 
-// window.addEventListener('scroll', function(){ console.log('whats '); }, true)
-
 $('body').bind('mousewheel', function(e){
-  debounceScroll(e)
-});
-
-addEventListener($('body'), "mousewheel", function(e) {
+  console.log('1');
   debounceScroll(e)
 });

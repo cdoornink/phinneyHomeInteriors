@@ -8,7 +8,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Raleway', "Karla", "avenir", "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Lucida Grande", sans-serif;
+  font-family: "avenir", 'Raleway', "Karla", "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Lucida Grande", sans-serif;
   background: $main_bg;
 }
 
@@ -34,8 +34,8 @@ body {
   // transition: transform .4s ease-in-out .1s;
 }
 .description-header {
-  font-family: 'Lobster', cursive;
-  font-size: 34px;
+  font-family: 'brandon', "Helvetica Neue", sans-serif;
+  font-size: 24px;
   margin: 20px 0;
   // transition: transform .4s ease-in-out .2s;
 }

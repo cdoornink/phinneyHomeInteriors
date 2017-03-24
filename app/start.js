@@ -1,27 +1,20 @@
 var heroImage = document.getElementById('hero-image')
 var heroHeader = document.getElementById('hero-header')
+var headerOffset = 120;
+var manualScrollOffset = 100;
 
-// function mouse_position()
-// {
-//     var e = window.event;
-//
-//     var posX = e.clientX;
-//     var posY = e.clientY;
-//
-// 		var height = window.innerHeight
-// 		var width = window.innerWidth
-//
-// 		yP = posY / height;
-// 		xP = posX / width;
-//
-// 		var containerPositionX = (xP * 50 - 25) * -1
-// 		var containerPositionY = (yP * 50 - 25) * -1
-//
-// 		heroImage.style.transform = 'translate3d('+containerPositionX+'px,'+containerPositionY+'px,0)'
-// 		// heroHeader.style.transform = 'translate3d('+containerPositionX/2+'px,'+containerPositionY/2+'px,0)'
-//
-// }
-// document.onmousemove = mouse_position
+function setActiveLink(name) {
+	$('.menu div').removeClass('active');
+	$('#'+name+'-link').addClass('active');
+}
+function scrollTo(name) {
+	setActiveLink(name);
+	var scrollTop = $('#'+name+'-section').offset().top;
+	$('body').animate({
+    scrollTop: (scrollTop - headerOffset)
+  }, 200, function() {});
+}
+
 
 function debounce(func, wait, immediate) {
 	var timeout;
@@ -41,35 +34,50 @@ function debounce(func, wait, immediate) {
 function checkScrollDirection(e) {
   var doc = document.documentElement
   var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
-  if (scrollTop > 1) {
-    $('.fixed-header .hero-header').addClass('active')
-    // $('.home-hero .hero-header').removeClass('active')
-  } else {
-    $('.fixed-header .hero-header').removeClass('active')
-    // $('.home-hero .hero-header').addClass('active')
-  }
 
-  //was for the fixed image in the hero, not fixed anymore
-  // if (scrollTop > 800) {
-  //   heroImage.style.display = 'none';
-  // } else {
-  //   heroImage.style.display = 'block';
-  // }
+	var about = $('#about-section').offset().top - headerOffset - manualScrollOffset;
+	var projects = $('#projects-section').offset().top - headerOffset - manualScrollOffset;
+	var contact = $('#contact-section').offset().top - headerOffset - manualScrollOffset;
+	var pinterest = $('#pinterest-section').offset().top - headerOffset - manualScrollOffset;
+	var instagram = $('#instagram-section').offset().top - headerOffset - manualScrollOffset;
 
-  // if (e.originalEvent.deltaX > 1) {
-  //   moveRight()
-  // } else if (e.originalEvent.deltaX < -1) {
-  //   moveLeft()
-  // } else if (e.originalEvent.deltaY > 1) {
-  //   moveDown()
-  // } else if (e.originalEvent.deltaY < -1) {
-  //   moveUp()
-  // }
+	// must be ordered from bottom to top
+	if (scrollTop > pinterest) {
+		setActiveLink('pinterest')
+	} else if (scrollTop > instagram) {
+		setActiveLink('instagram')
+	} else if (scrollTop > contact) {
+		setActiveLink('contact')
+	} else if (scrollTop > projects) {
+		setActiveLink('projects')
+	} else if (scrollTop > about) {
+		setActiveLink('about')
+	}
 }
 
 var debounceScroll = debounce(checkScrollDirection, 10)
 
 $('body').bind('mousewheel', function(e){
-  console.log('1');
   debounceScroll(e)
+});
+
+$('#about-link').bind('click', function(e){
+	scrollTo('about');
+});
+
+$('#projects-link').bind('click', function(e){
+	console.log('hello?');
+	scrollTo('projects');
+});
+
+$('#contact-link').bind('click', function(e){
+	scrollTo('contact');
+});
+
+$('#pinterest-link').bind('click', function(e){
+	scrollTo('pinterest');
+});
+
+$('#instagram-link').bind('click', function(e){
+	scrollTo('instagram');
 });

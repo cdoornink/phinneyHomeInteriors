@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  text-align: center;
+  height: 100px;
+  font-family: 'Raleway';
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background: white;
+  height: 120px;
+  padding: 25px 20px 10px;
+  .title {
+    height: 65px;
+    font-size: 36px;
+    font-weight: 200;
+    .titlefont {
+      color: $green;
+      font-size: 32px;
+      top: -5px;
+    }
+  }
+  .menu {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 300;
+    > div {
+      display: inline-block;
+      margin: 0 20px;
+      text-transform: uppercase;
+      cursor: pointer;
+      &.active {
+        border-bottom: 2px solid $green;
+      }
+    }
+  }
+}

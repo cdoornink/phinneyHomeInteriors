@@ -9,3 +9,5 @@
 .DS_Store
 
 secret.json
+
+/.sass-cache

@@ -1,5 +1,7 @@
 $main_bg: #fafafa;
 $green: #409b88;
+$dark-green: #004b38;
+$dark-blue: #0e2447;
 
 html {
   margin: 0;
@@ -10,6 +12,11 @@ body {
   padding: 0;
   font-family: "avenir", 'Raleway', "Karla", "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Lucida Grande", sans-serif;
   background: $main_bg;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* apply a natural box layout model to all elements */
@@ -20,6 +27,7 @@ body {
 @import 'mixins';
 @import 'fonts';
 @import 'layout';
+@import 'header';
 
 .header {
   // font-family: "Brandon", "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Lucida Grande", sans-serif;
@@ -45,6 +53,38 @@ body {
   line-height: 24px;
   // transition: transform .4s ease-in-out .3s;
 }
+.description-signature {
+  text-align: left;
+  margin: 20px auto;
+  .avatar {
+    float: left;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-size: cover;
+    margin-right: 15px;
+  }
+  .name {
+    font-family: "TitleFont", "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    color: $green;
+  }
+  .position {
+    font-family: 'brandon', 'Helvetica Neue', sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+    margin-top: -8px;
+  }
+}
+
+.description-signature.annie {
+  width: 250px;
+  .avatar{
+    background-image: url(../assets/images/annie1.jpg);
+  }
+}
 
 .titlefont {
   font-family: "TitleFont", "Helvetica Neue", sans-serif;
@@ -54,22 +94,3 @@ body {
   position: relative;
   top: -15px;
 }
-
-@include keyframes(slowMove) {
-  0% {
-    @include xb(transform, translate3d(-5%,0,0));
-  }
-  25% {
-    @include xb(transform, translate3d(0,-3%,0));
-  }
-  50% {
-    @include xb(transform, translate3d(5%,0,0));
-  }
-  75% {
-    @include xb(transform, translate3d(0,3%,0));
-  }
-  100% {
-    @include xb(transform, translate3d(-5%,0,0));
-  }
-
-};

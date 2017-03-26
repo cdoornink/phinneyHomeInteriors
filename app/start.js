@@ -42,9 +42,10 @@ function checkScrollDirection(e) {
 	var instagram = $('#instagram-section').offset().top - headerOffset - manualScrollOffset;
 
 	// must be ordered from bottom to top
-	if (scrollTop > pinterest) {
-		setActiveLink('pinterest')
-	} else if (scrollTop > instagram) {
+	// if (scrollTop > pinterest) {
+	// 	setActiveLink('pinterest')
+	// } else
+	if (scrollTop > instagram) {
 		setActiveLink('instagram')
 	} else if (scrollTop > contact) {
 		setActiveLink('contact')
@@ -66,7 +67,6 @@ $('#about-link').bind('click', function(e){
 });
 
 $('#projects-link').bind('click', function(e){
-	console.log('hello?');
 	scrollTo('projects');
 });
 
@@ -81,3 +81,74 @@ $('#pinterest-link').bind('click', function(e){
 $('#instagram-link').bind('click', function(e){
 	scrollTo('instagram');
 });
+
+$('.modal-container').bind('click', function(e){
+	$('.modal-container').hide()
+});
+
+var validation = {
+	name: false,
+	email: false,
+	subject: false,
+	message: false,
+}
+
+$('#contact-name').bind('keyup', function(e) {
+	if (e.target.value && e.target.value.length) {
+		validation.name = true;
+	} else {
+		validation.name = false;
+	}
+	reValidate()
+});
+
+$('#contact-email').bind('keyup', function(e) {
+	if (e.target.value && e.target.value.length) {
+		validation.email = true;
+	} else {
+		validation.email = false;
+	}
+	reValidate()
+});
+
+$('#contact-subject').bind('keyup', function(e) {
+	if (e.target.value && e.target.value.length) {
+		validation.subject = true;
+	} else {
+		validation.subject = false;
+	}
+	reValidate()
+});
+
+$('#contact-message').bind('keyup', function(e) {
+	if (e.target.value && e.target.value.length) {
+		validation.message = true;
+	} else {
+		validation.message = false;
+	}
+	reValidate()
+});
+
+function reValidate() {
+	console.log(validation);
+	if (validation.name &&
+			validation.email &&
+			validation.subject &&
+			validation.message
+	) {
+		$("#contact-section form button").addClass('validated').prop("disabled",false);
+	} else {
+		$("#contact-section form button").removeClass('validated').prop("disabled",true);
+	}
+}
+
+
+if (localStorage.getItem('thanks-message')) {
+	$('#thanks').show();
+	localStorage.removeItem('thanks-message');
+}
+
+if (document.location.search == "?thanks") {
+	localStorage.setItem('thanks-message', true);
+	document.location = "/";
+}

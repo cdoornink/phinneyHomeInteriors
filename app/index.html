@@ -14,15 +14,15 @@
 <body>
 
   <div class="header">
-    <div class="title">
+    <h1 class="title">
       <span class='titlefont'>Phinney</span> Home Interiors
-    </div>
+    </h1>
     <div class="menu">
       <div id="about-link">about</div>
       <div id="projects-link">projects</div>
       <div id="contact-link">contact</div>
       <div id="instagram-link">social</div>
-      <div id="pinterest-link">pinterest inspiration</div>
+      <!-- <div id="pinterest-link">pinterest inspiration</div> -->
     </div>
   </div>
   <div class='home-hero'>
@@ -73,25 +73,33 @@
     <div class="description-header">
       Contact
     </div>
-    <form>
-      <input type='text' class="name" placeholder="NAME *">
-      <input type='text' class="email" placeholder="EMAIL *">
-      <input type='text' class="subject" placeholder="SUBJECT *">
-      <textarea placeholder="MESSAGE *"></textarea>
-      <button type="submit">SEND</button>
+    <form action="https://formspree.io/annie@phinneyhomeinteriors.com"
+      method="POST">
+
+      <input id='contact-name' type='text' name="name" class="name" placeholder="NAME *">
+      <input id='contact-email' type='email' name="_replyto" class="email" placeholder="EMAIL *">
+      <input id='contact-subject' type='text' name="_subject" class="subject" placeholder="SUBJECT *">
+      <input type='text' name="_gotcha" class="dont-show-me" placeholder="What you up to?">
+      <input type="hidden" name="_next" value="/?thanks" />
+      <textarea id='contact-message' name="message" placeholder="MESSAGE *"></textarea>
+      <button id='contact-submit' type="submit" value="Send" disabled="disabled">SEND</button>
     </form>
   </div>
 
   <div class="content-space" id="instagram-section">
     <!-- SnapWidget -->
     <div class="instagram-container">
-      <a href="http://instagram.com" class="description-header">Follow us on <span class="instgram-logo">Instagram</span>!</a>
-      <iframe src="https://snapwidget.com/embed/246599" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:775px; height:155px"></iframe>
+      <a href="http://instagram.com/phinneyhome" class="description-header">Follow us on <span class="instgram-logo">Instagram</span>!</a>
+      <script src="https://snapwidget.com/js/snapwidget.js"></script>
+      <iframe src="https://snapwidget.com/embed/246599" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; max-width: 800px"></iframe>
+
     </div>
+    <!-- SnapWidget -->
   </div>
 
-  <div class="split-container" id="pinterest-section">
-    <div class="image-right"></div>
+  <div id="pinterest-section">
+    <div class="pinterest-container">
+    <!-- <div class="image-right"></div>
     <div class="description-left">
       <div class="description-header">About me</div>
       <div class="description-body">
@@ -100,30 +108,22 @@
         <p>Meanwhile, Syd had worked for six years to build a start-up digital marketing firm that was acquired and left him searching for a new start-up to dive into. He soon realized there was the perfect candidate right in front of him.</p>
         <p>Their team’s work has garnered attention in the design world from House Beautiful, Domaine Home, Design*Sponge, Apartment Therapy, SMP Living, and One King’s Lane to name a few.</p>
       </div>
+    </div> -->
+      <a data-pin-do="embedUser" data-pin-board-width="800" data-pin-scale-height="500" data-pin-scale-width="200" href="https://www.pinterest.com/phinneyhome/"></a>
     </div>
   </div>
 
-
-
-
-  <!-- <div class="columned-boxes">
-    <div>
-      <div class="description-header">Some boxes</div>
-      <div class="description-body">Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.</div>
-      <div class="image"><img class='image' src="../assets/temp_images/desk&wallpaper.jpg"></div>
+  <div class="modal-container" id="thanks">
+    <div class="modal">
+      <div class="description-header">
+        <span class="titlefont">Thanks</span> for reaching out to us!
+      </div>
+      <div class="description-body">
+        We will get back to you as soon as we can. Usually within 1-2 business days.
+      </div>
     </div>
-
-    <div>
-      <div class="description-header">Containing content</div>
-      <div class="description-body">Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.</div>
-    </div>
-
-    <div>
-      <div class="description-header">For your pleasure</div>
-      <div class="description-body">Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. </div>
-      <div class="image"><img class='image' src="../assets/temp_images/kitchen.jpg"></div>
-    </div>
-  </div> -->
+  </div>
+  <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 </body>
   <link rel='stylesheet' href='phi.css'>
   <script src='phi.js'></script>

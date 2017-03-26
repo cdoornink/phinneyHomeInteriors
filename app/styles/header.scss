@@ -9,10 +9,12 @@
   background: white;
   height: 120px;
   padding: 25px 20px 10px;
+  box-shadow: 0 0 6px #aaa;
   .title {
     height: 65px;
     font-size: 36px;
     font-weight: 200;
+    margin: 0;
     .titlefont {
       color: $green;
       font-size: 32px;

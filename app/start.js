@@ -35,7 +35,8 @@ function checkScrollDirection(e) {
   var doc = document.documentElement
   var scrollTop = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0)
 
-	var about = $('#about-section').offset().top - headerOffset - manualScrollOffset;
+	var hero = $('#hero-image').offset().top - headerOffset - manualScrollOffset - 500;
+	var about = $('#about-section').offset().top - headerOffset - manualScrollOffset - 200;
 	var projects = $('#projects-section').offset().top - headerOffset - manualScrollOffset;
 	var contact = $('#contact-section').offset().top - headerOffset - manualScrollOffset;
 	var pinterest = $('#pinterest-section').offset().top - headerOffset - manualScrollOffset;
@@ -53,6 +54,8 @@ function checkScrollDirection(e) {
 		setActiveLink('projects')
 	} else if (scrollTop > about) {
 		setActiveLink('about')
+	} else {
+		setActiveLink();
 	}
 }
 
@@ -152,3 +155,5 @@ if (document.location.search == "?thanks") {
 	localStorage.setItem('thanks-message', true);
 	document.location = "/";
 }
+
+checkScrollDirection();

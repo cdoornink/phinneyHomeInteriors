@@ -56,6 +56,16 @@ module.exports = function(grunt) {
           livereload: true,
         },
       },
+    },
+    fontmin: {
+      options: {
+        dest:    'dist/app/assets/fonts/',
+        basedir: 'dist/app/assets/fonts/'
+      },
+      'Bombshell.ttf': {
+        getText: (html) => 'PhineyTakYou!',
+        src: 'dist/**/*.html'
+      }
     }
   });
 
@@ -66,8 +76,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-fontmin');
 
   // Default task(s).
   grunt.registerTask('default', ['build', 'http-server', 'watch']);
-  grunt.registerTask('build', ['clean', 'concat', 'copy', 'sass']);
+  grunt.registerTask('build', ['clean', 'concat', 'copy', 'sass', 'fontmin']);
+  grunt.registerTask('prod', ['build'])
 };

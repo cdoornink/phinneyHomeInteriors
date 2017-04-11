@@ -1,8 +1,9 @@
 .home-hero {
   width: 100%;
   max-height: 950px;
+  max-width: 900px;
+  margin: 100px auto 0;
   overflow: hidden;
-  margin-top: 100px;
 }
 .fixed-bg-image {
   position: fixed;
@@ -16,17 +17,6 @@
   width: 100%;
   background: url(../assets/images/dining.jpg);
   background-size: cover;
-}
-
-.logo {
-  position: relative;
-  margin: 200px auto;
-  text-align: center;
-  background: url(../assets/temp_images/logo1.png);
-  background-size: cover;
-  background-position: center;
-  height: 100px;
-  width: 280px;
 }
 
 .columned-boxes {
@@ -133,134 +123,12 @@
   position: relative;
   overflow: hidden;
   background: $main_bg;
-  .background-image {
-    height: 120%;
-    width: 120%;
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    background: url(../assets/temp_images/stools_blurred.png);
-    background-size: cover;
-    background-position: center;
-  }
-  .about-image {
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    top: 60px;
-    left: 120px;
-    background: url(../assets/temp_images/temp_annie.png);
-    background-size: cover;
-    border-radius: 50%;
-    z-index: 1;
-  }
   .about-description {
     position: relative;
     background: white;
     padding: 40px 40px 40px 150px;
     margin-left: 100px;
     width: calc(100% - 200px);
-  }
-}
-
-.gallery-header.description-header {
-  text-align: center;
-  background: white;
-  // background: $dark-blue;
-  // color: white;
-  margin: 40px 0 0;
-  padding: 16px 0 10px;
-}
-.gallery-container {
-  width: 100%;
-  height: auto;
-  position: relative;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  background: linear-gradient(to bottom, #fff 0%, $main_bg 100%);
-  background: white;
-  // background: $dark-blue;
-  padding: 5px 0 10px;
-  .gallery {
-    width: calc(240%);
-    overflow: auto;
-  }
-  .image {
-    display: inline-block;
-    padding-bottom: 15%;
-    &.tall {
-      width: 11%;
-    }
-    &.square {
-      width: 15%;
-    }
-    &.wide {
-      width: 23%;
-    }
-    &.kitchen1 {
-      background: url(../assets/images/kitchen1.jpg);
-      background-size: cover;
-    }
-    &.kitchen2 {
-      background: url(../assets/images/kitchen2.jpg);
-      background-size: cover;
-    }
-    &.bedroom1 {
-      background: url(../assets/images/bedroom1.jpg);
-      background-size: cover;
-    }
-    &.bedroom2 {
-      background: url(../assets/images/bedroom2.jpg);
-      background-size: cover;
-    }
-    &.exterior {
-      background: url(../assets/images/exterior.jpg);
-      background-size: cover;
-    }
-    &.diningwide {
-      background: url(../assets/images/diningwide.jpg);
-      background-size: cover;
-    }
-  }
-}
-
-.split-container {
-  // width: calc(100% + 80px);
-  // margin: 0 -40px;
-  width: 100%;
-  height: 550px;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 100px;
-  .image-left, .image-right {
-    position: relative;
-    height: 100%;
-    width: 50%;
-    float: left;
-    background: url(../assets/images/bedroom1.jpg);
-    background-size: cover;
-    background-position: center center;
-  }
-  .image-right {
-    float: right;
-    background-image: url(../assets/images/dining.jpg);
-  }
-  .description-right, .description-left {
-    position: relative;
-    background: white;
-    width: 50%;
-    height: 100%;
-    float: right;
-    padding: 40px 7%;
-  }
-  .description-left {
-    float: left;
-  }
-  @media(max-width: 650px) {
-    .image-right, .image-left, .description-left, .description-right {
-      float: none;
-      width: 100%;
-    }
   }
 }
 

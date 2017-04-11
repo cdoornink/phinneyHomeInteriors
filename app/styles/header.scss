@@ -10,6 +10,7 @@
   height: 120px;
   padding: 25px 20px 10px;
   box-shadow: 0 0 6px #aaa;
+  color: #444;
   .title {
     height: 65px;
     font-size: 36px;
@@ -24,14 +25,41 @@
   .menu {
     text-align: center;
     font-size: 15px;
-    font-weight: 300;
+    font-family: 'brandon', "Helvetica Neue", sans-serif;
+    color: #888;
+    font-weight: 200;
     > div {
       display: inline-block;
-      margin: 0 20px;
+      margin-right: 40px;
       text-transform: uppercase;
       cursor: pointer;
       &.active {
         border-bottom: 2px solid $green;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  .header {
+    height: 90px;
+    padding: 17px 0 0;
+    .title {
+      height: 48px;
+      font-size: 26px;
+      .titlefont {
+        font-size: 22px;
+      }
+    }
+    .menu {
+      font-size: 13px;
+      > div {
+        margin-right: 12px;
+      }
+      &:last-child {
+        margin-right: 0;
       }
     }
   }

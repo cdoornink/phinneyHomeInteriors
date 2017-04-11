@@ -1,0 +1,81 @@
+.projects-section {
+  margin-top: 40px;
+  background: white;
+  padding: 16px 0 10px;
+}
+.gallery-header.description-header {
+}
+.gallery-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  background: linear-gradient(to bottom, #fff 0%, $main_bg 100%);
+  background: white;
+  // background: $dark-blue;
+  padding: 5px 0 10px;
+  .gallery {
+    width: calc(240%);
+    overflow: auto;
+  }
+  .image {
+    float: left;
+    padding-bottom: 15%;
+    margin-right: .4%;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.tall {
+      width: 11%;
+    }
+    &.square {
+      width: 15%;
+    }
+    &.wide {
+      width: 23%;
+    }
+    &.kitchen1 {
+      background: url(../assets/images/kitchen1.jpg);
+      background-size: cover;
+    }
+    &.kitchen2 {
+      background: url(../assets/images/kitchen2.jpg);
+      background-size: cover;
+    }
+    &.bedroom1 {
+      background: url(../assets/images/bedroom1.jpg);
+      background-size: cover;
+    }
+    &.bedroom2 {
+      background: url(../assets/images/bedroom2.jpg);
+      background-size: cover;
+    }
+    &.exterior {
+      background: url(../assets/images/exterior.jpg);
+      background-size: cover;
+    }
+    &.diningwide {
+      background: url(../assets/images/diningwide.jpg);
+      background-size: cover;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .gallery-container .gallery {
+    width: 300%;
+  }
+}
+
+@media (max-width: 750px) {
+  .gallery-container .gallery {
+    width: 350%;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery-container .gallery {
+    width: 400%;
+  }
+}

@@ -62,8 +62,14 @@ function checkScrollDirection(e) {
 var debounceScroll = debounce(checkScrollDirection, 10)
 
 $('body').bind('mousewheel', function(e){
-  debounceScroll(e)
+  debounceScroll()
 });
+
+document.addEventListener("scroll", Scroll, false);
+
+function Scroll() {
+    debounceScroll()
+}
 
 $('#about-link').bind('click', function(e){
 	scrollTo('about');
@@ -96,44 +102,32 @@ var validation = {
 	message: false,
 }
 
-$('#contact-name').bind('keyup', function(e) {
+function validateValue(e, val) {
 	if (e.target.value && e.target.value.length) {
-		validation.name = true;
+		validation[val] = true;
 	} else {
-		validation.name = false;
+		validation[val] = false;
 	}
 	reValidate()
+}
+
+$('#contact-name').bind('keyup keypress', function(e) {
+	validateValue(e, 'name');
 });
 
-$('#contact-email').bind('keyup', function(e) {
-	if (e.target.value && e.target.value.length) {
-		validation.email = true;
-	} else {
-		validation.email = false;
-	}
-	reValidate()
+$('#contact-email').bind('keyup keypress', function(e) {
+	validateValue(e, 'email')
 });
 
-$('#contact-subject').bind('keyup', function(e) {
-	if (e.target.value && e.target.value.length) {
-		validation.subject = true;
-	} else {
-		validation.subject = false;
-	}
-	reValidate()
+$('#contact-subject').bind('keyup keypress', function(e) {
+	validateValue(e, 'subject')
 });
 
-$('#contact-message').bind('keyup', function(e) {
-	if (e.target.value && e.target.value.length) {
-		validation.message = true;
-	} else {
-		validation.message = false;
-	}
-	reValidate()
+$('#contact-message').bind('keyup keypress', function(e) {
+	validateValue(e, 'message')
 });
 
 function reValidate() {
-	console.log(validation);
 	if (validation.name &&
 			validation.email &&
 			validation.subject &&

@@ -28,26 +28,24 @@ a {
 @import 'fonts';
 @import 'layout';
 @import 'header';
+@import 'gallery';
 
-.header {
-  // font-family: "Brandon", "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Lucida Grande", sans-serif;
-  font-size: 70px;
-  font-weight: 100;
-  color: #444;
-  // transition: transform .4s cubic-bezier(1,1,1,1.1);
-}
-.sub-header {
-  font-family: "Karla", "avenir", "Helvetica Neue", Helvetica, "Segoe UI", Arial, "Lucida Grande", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  // transition: transform .4s ease-in-out .1s;
-}
+
 .description-header {
   font-family: 'brandon', "Helvetica Neue", sans-serif;
   font-size: 28px;
   margin: 20px 0;
   color: #444;
+  text-align: center;
   // transition: transform .4s ease-in-out .2s;
+}
+.description-subheader {
+  text-align: center;
+  font-family: 'brandon', "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  margin: -24px 50px 20px;
+  color: #888;
+  font-weight: 200;
 }
 .description-body {
   font-size: 15px;
@@ -85,7 +83,7 @@ a {
 .description-signature.annie {
   width: 250px;
   .avatar{
-    background-image: url(../assets/images/annie1.jpg);
+    background-image: url(../assets/images/annie4.jpg);
   }
 }
 
@@ -128,4 +126,38 @@ a {
   position: fixed;
   top: 200px;
   left: calc(50% - 250px);
+}
+
+@media (max-width: 500px) {
+  .content-space {
+    padding: 0 10px;
+    .instagram-container {
+      margin: 0 -10px;
+    }
+  }
+
+  .contact {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .modal {
+    .titlefont {
+      font-size: 50px;
+    }
+    .description-header {
+      font-size: 27px;
+      text-align: center;
+      line-height: 26px;
+      margin: 44px 0 30px;
+    }
+    .description-body {
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+    width: 300px;
+    padding: 34px 30px;
+    top: 150px;
+    left: calc(50% - 150px);
+  }
 }

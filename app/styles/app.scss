@@ -71,8 +71,8 @@ a {
   margin: 20px auto;
   .avatar {
     float: left;
-    width: 65px;
-    height: 65px;
+    width: 95px;
+    height: 95px;
     border-radius: 50%;
     border: 3px solid white;
     background-size: cover;
@@ -83,17 +83,19 @@ a {
     font-weight: 300;
     font-size: 20px;
     color: $green;
+    position: relative;
+    top: 20px;
   }
   .position {
     font-family: 'brandon', 'Helvetica Neue', sans-serif;
     font-size: 13px;
     font-weight: 200;
-    margin-top: -8px;
+    margin-top: 11px;
   }
 }
 
 .description-signature.annie {
-  width: 250px;
+  width: 280px;
   .avatar{
     background-image: url(../assets/images/anniehead.jpg);
   }
@@ -151,6 +153,11 @@ a {
   .contact {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  
+  .description-subheader {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .modal {

@@ -1,7 +1,7 @@
 .projects-section {
   margin-top: 40px;
   background: white;
-  padding: 16px 0 10px;
+  padding: 60px 0 80px;
 }
 .gallery-header.description-header {
 }
@@ -16,47 +16,64 @@
   // background: $dark-blue;
   padding: 5px 0 10px;
   .gallery {
-    width: calc(240%);
+    width: calc(400%);
     overflow: auto;
   }
   .image {
     float: left;
-    padding-bottom: 15%;
-    margin-right: .4%;
+    padding-bottom: 9.2%;
+    margin-right: .22%;
+    background-position: center;
     &:last-child {
       margin-right: 0;
     }
     &.tall {
-      width: 11%;
+      width: 6.2%;
     }
     &.square {
-      width: 15%;
+      width: 9.2%;
     }
     &.wide {
-      width: 23%;
+      width: 12.2%;
     }
     &.kitchen1 {
-      background: url(../assets/images/kitchen1.jpg);
+      background-image: url(../assets/images/kitchen1.jpg);
       background-size: cover;
     }
     &.kitchen2 {
-      background: url(../assets/images/kitchen2.jpg);
+      background-image: url(../assets/images/kitchen2.jpg);
       background-size: cover;
     }
     &.bedroom1 {
-      background: url(../assets/images/bedroom1.jpg);
+      background-image: url(../assets/images/bedroom1-2.jpg);
       background-size: cover;
     }
     &.bedroom2 {
-      background: url(../assets/images/bedroom2.jpg);
+      background-image: url(../assets/images/bedroom2.jpg);
       background-size: cover;
     }
     &.exterior {
-      background: url(../assets/images/exterior.jpg);
+      background-image: url(../assets/images/exterior.jpg);
       background-size: cover;
     }
     &.diningwide {
-      background: url(../assets/images/diningwide.jpg);
+      background-image: url(../assets/images/diningwide.jpg);
+      background-size: cover;
+    }
+    &.office1 {
+      background-image: url(../assets/images/office1.jpg);
+      background-size: cover;
+    }
+    &.office2 {
+      background-image: url(../assets/images/office2.jpg);
+      background-size: cover;
+    }
+    &.windowseat {
+      background-image: url(../assets/images/windowseat.jpg);
+      background-size: cover;
+    }
+    &.gallerywall {
+      background-image: url(../assets/images/gallerywall.jpg);
       background-size: cover;
     }
   }
@@ -64,18 +81,18 @@
 
 @media (max-width: 1000px) {
   .gallery-container .gallery {
-    width: 300%;
+    width: 500%;
   }
 }
 
 @media (max-width: 750px) {
   .gallery-container .gallery {
-    width: 350%;
+    width: 600%;
   }
 }
 
 @media (max-width: 500px) {
   .gallery-container .gallery {
-    width: 400%;
+    width: 650%;
   }
 }

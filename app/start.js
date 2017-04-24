@@ -38,6 +38,7 @@ function checkScrollDirection(e) {
 	var hero = $('#hero-image').offset().top - headerOffset - manualScrollOffset - 500;
 	var about = $('#about-section').offset().top - headerOffset - manualScrollOffset - 200;
 	var projects = $('#projects-section').offset().top - headerOffset - manualScrollOffset;
+	var services = $('#services-section').offset().top - headerOffset - manualScrollOffset;
 	var contact = $('#contact-section').offset().top - headerOffset - manualScrollOffset;
 	var pinterest = $('#pinterest-section').offset().top - headerOffset - manualScrollOffset;
 	var instagram = $('#instagram-section').offset().top - headerOffset - manualScrollOffset;
@@ -50,6 +51,8 @@ function checkScrollDirection(e) {
 		setActiveLink('instagram')
 	} else if (scrollTop > contact) {
 		setActiveLink('contact')
+	} else if (scrollTop > services) {
+		setActiveLink('services')
 	} else if (scrollTop > projects) {
 		setActiveLink('projects')
 	} else if (scrollTop > about) {
@@ -81,6 +84,10 @@ $('#projects-link').bind('click', function(e){
 
 $('#contact-link').bind('click', function(e){
 	scrollTo('contact');
+});
+
+$('#services-link').bind('click', function(e){
+	scrollTo('services');
 });
 
 $('#pinterest-link').bind('click', function(e){

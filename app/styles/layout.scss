@@ -55,6 +55,12 @@
   background: $main_bg;
 }
 
+.services {
+  padding: 60px 50px;
+  overflow: hidden;
+  text-align: center;
+}
+
 .contact {
   background: white;
   padding: 60px 50px 160px;
@@ -111,7 +117,7 @@
 .instagram-container {
   margin: 0px -40px 0;
   // background: white;
-  padding: 30px 0 65px;
+  padding: 60px 0 65px;
   a {
     display: block;
   }

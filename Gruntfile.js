@@ -22,6 +22,7 @@ module.exports = function(grunt) {
         files: [
           {src: 'app/index.html', dest: 'dist/'},
           {src: 'assets/**', dest: 'dist/app/'},
+          {src: 'public/favicon.ico', dest: 'dist/app/favicon.ico'},
         ]
       }
     },

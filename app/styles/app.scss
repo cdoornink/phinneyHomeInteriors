@@ -24,7 +24,6 @@ a {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
-@import 'mixins';
 @import 'fonts';
 @import 'layout';
 @import 'header';
@@ -43,16 +42,29 @@ a {
   text-align: center;
   font-family: 'brandon', "Helvetica Neue", sans-serif;
   font-size: 17px;
-  margin: -24px 50px 20px;
+  margin: -24px 50px 35px;
   color: #888;
   font-weight: 200;
 }
 .description-body {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 400;
   line-height: 24px;
   color: #333;
   // transition: transform .4s ease-in-out .3s;
+}
+.description-body._list {
+  margin: 0 auto 25px;
+  max-width: 900px;
+  li {
+    font-family: 'brandon', "Helvetica Neue", sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+    display: inline-block;
+    width: 220px;
+    line-height: 50px;
+    color: #888;
+  }
 }
 .description-signature {
   text-align: left;
@@ -83,7 +95,7 @@ a {
 .description-signature.annie {
   width: 250px;
   .avatar{
-    background-image: url(../assets/images/annie4.jpg);
+    background-image: url(../assets/images/anniehead.jpg);
   }
 }
 

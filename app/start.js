@@ -2,11 +2,15 @@ var heroImage = document.getElementById('hero-image')
 var heroHeader = document.getElementById('hero-header')
 var headerOffset = 120;
 var manualScrollOffset = 100;
+var currentSection;
 
 function setActiveLink(name) {
 	$('.menu div').removeClass('active');
 	$('#'+name+'-link').addClass('active');
-	ga('send', 'event', 'Navigation', 'Scrolled to', name);
+	if (currentSection != name) {
+		ga('send', 'event', 'Navigation', 'Scrolled to', name);
+	}
+	currentSection = name;
 }
 function scrollTo(name) {
 	var scrollTop = $('#'+name+'-section').offset().top;

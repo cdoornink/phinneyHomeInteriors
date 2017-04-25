@@ -6,13 +6,14 @@ var manualScrollOffset = 100;
 function setActiveLink(name) {
 	$('.menu div').removeClass('active');
 	$('#'+name+'-link').addClass('active');
+	ga('send', 'event', 'Navigation', 'Scrolled to', name);
 }
 function scrollTo(name) {
-	setActiveLink(name);
 	var scrollTop = $('#'+name+'-section').offset().top;
 	$('body').animate({
     scrollTop: (scrollTop - headerOffset)
   }, 200, function() {});
+	ga('send', 'event', 'Navigation', 'Clicked', name);
 }
 
 

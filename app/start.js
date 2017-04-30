@@ -4,11 +4,30 @@ var headerOffset = 120;
 var manualScrollOffset = 100;
 var currentSection;
 
+var env = 'dev';
+if (window.location.hostname != 'localhost' && window.location.hostname != '127.0.0.1') {
+  env = 'prod';
+}
+
+function send(category, action, label) {
+	if (env == 'prod') {
+		ga('send', 'event', category, action, label);
+	}
+	// else {
+	// 	console.log('sendEvent', category, action, label);
+	// }
+}
+
 function setActiveLink(name) {
 	$('.menu div').removeClass('active');
 	$('#'+name+'-link').addClass('active');
 	if (currentSection != name) {
-		ga('send', 'event', 'Navigation', 'Scrolled to', name);
+		var activeSection = name;
+		setTimeout(function(){
+			if (currentSection === activeSection) {
+				send('Navigation', 'Visited', name);
+			}
+		}, 3000);
 	}
 	currentSection = name;
 }
@@ -17,7 +36,7 @@ function scrollTo(name) {
 	$('body').animate({
     scrollTop: (scrollTop - headerOffset)
   }, 200, function() {});
-	ga('send', 'event', 'Navigation', 'Clicked', name);
+	send('Navigation', 'Clicked', name);
 }
 
 

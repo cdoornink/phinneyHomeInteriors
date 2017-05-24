@@ -1,6 +1,7 @@
 var headerOffset = 120;
 var manualScrollOffset = 100;
 var currentSection;
+var justSentVisit = null;
 
 function setActiveLink(name) {
 	$('.menu div').removeClass('active');
@@ -9,7 +10,10 @@ function setActiveLink(name) {
 		var activeSection = name;
 		setTimeout(function(){
 			if (currentSection === activeSection) {
-				send('Navigation', 'Visited', name);
+				if (justSentVisit !== name) {
+					send('Navigation', 'Visited', name);
+				}
+				justSentVisit = name;
 			}
 		}, 3000);
 	}
@@ -30,7 +34,7 @@ function checkScrollPosition(e) {
 	var hero = $('#hero-image').offset().top - headerOffset - manualScrollOffset - 500;
 	var about = $('#about-section').offset().top - headerOffset - manualScrollOffset - 200;
 	var projects = $('#projects-section').offset().top - headerOffset - manualScrollOffset;
-	var services = $('#services-section').offset().top - headerOffset - manualScrollOffset;
+	var services = $('#services-section').offset().top - headerOffset - manualScrollOffset - 200;
 	var contact = $('#contact-section').offset().top - headerOffset - manualScrollOffset;
 	var pinterest = $('#pinterest-section').offset().top - headerOffset - manualScrollOffset;
 	var instagram = $('#instagram-section').offset().top - headerOffset - manualScrollOffset;

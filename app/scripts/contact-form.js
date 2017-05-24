@@ -30,6 +30,8 @@ $('#contact-message').bind('keyup keypress', function(e) {
 	validateValue(e, 'message')
 });
 
+var formStarted = false;
+var formFilled = false;
 function reValidate() {
 	if (validation.name &&
 			validation.email &&
@@ -37,8 +39,16 @@ function reValidate() {
 			validation.message
 	) {
 		$("#contact-section form button").addClass('validated').prop("disabled",false);
+		if (!formFilled) {
+			send('Contact', 'Form Filled', $('#contact-email')[0].value + ' - ' + $('#contact-subject')[0].value);
+			formFilled = true;
+		}
 	} else {
 		$("#contact-section form button").removeClass('validated').prop("disabled",true);
+		if (!formStarted) {
+			send('Contact', 'Form Started');
+			formStarted = true;
+		}
 	}
 }
 
@@ -49,6 +59,7 @@ $('.modal-container').bind('click', function(e){
 if (localStorage.getItem('thanks-message')) {
 	$('#thanks').show();
 	localStorage.removeItem('thanks-message');
+	send('Contact', 'Form Submitted');
 }
 
 if (document.location.search == "?thanks") {
